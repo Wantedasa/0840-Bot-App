@@ -5,64 +5,105 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>0840-Bot App Download</title>
 
-    const version = "Version 0.0.3"
+<!-- Version ganz oben definieren -->
+<script>
+    // 🔹 Hier Version ändern
+    const appVersion = "Version 0.0.3";
+
+    // Automatisch in das HTML einfügen, sobald Seite geladen wird
+    function setVersion() {
+        const versionElement = document.getElementById('version-text');
+        if (versionElement) {
+            versionElement.textContent = appVersion;
+        }
+    }
+    window.onload = setVersion;
+</script>
+
 <style>
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Arial, sans-serif;
     background: linear-gradient(135deg, #0f172a, #020617);
     color: white;
     text-align: center;
 }
 
 .container {
-    padding: 50px 20px;
+    padding: 60px 20px;
 }
 
 .logo {
-    font-size: 40px;
+    font-size: 48px;
     font-weight: bold;
     color: #00FFD1;
+    text-shadow: 0 0 10px #00FFD1;
+    margin-bottom: 40px;
 }
 
 .card {
     background: #1e293b;
     border-radius: 20px;
-    padding: 30px;
-    margin: 30px auto;
-    max-width: 400px;
-    box-shadow: 0 0 30px rgba(0,255,209,0.2);
+    padding: 40px 30px;
+    margin: 0 auto 40px;
+    max-width: 450px;
+    box-shadow: 0 10px 30px rgba(0,255,209,0.25);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,255,209,0.3);
+}
+
+h2 {
+    margin-top: 0;
+    color: #00FFD1;
+    font-size: 26px;
 }
 
 .version {
     color: #94a3b8;
-    margin-bottom: 20px;
+    margin: 10px 0 20px;
+    font-weight: bold;
 }
 
 .download-btn {
     display: inline-block;
-    padding: 15px 30px;
+    padding: 15px 35px;
     font-size: 18px;
     font-weight: bold;
-    color: black;
+    color: #000;
     background: #00FFD1;
     border-radius: 12px;
     text-decoration: none;
     transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(0,255,209,0.3);
 }
 
 .download-btn:hover {
     background: #00c9a7;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0,255,209,0.4);
 }
 
 .info {
-    margin-top: 20px;
+    margin-top: 15px;
     font-size: 14px;
     color: #94a3b8;
 }
 
+.info a {
+    color: #00FFD1;
+    text-decoration: none;
+}
+
+.info a:hover {
+    text-decoration: underline;
+}
+
 .footer {
-    margin-top: 40px;
+    margin-top: 50px;
     font-size: 12px;
     color: #64748b;
 }
@@ -77,9 +118,8 @@ body {
 
     <div class="card">
         <h2>Download</h2>
-        <div class="version">${version}</div>
+        <div class="version" id="version-text"></div>
 
-        <!-- RELATIVER LINK (funktioniert perfekt auf GitHub Pages) -->
         <a class="download-btn" 
            href="app-release.apk"
            download="0840-Bot.apk">
@@ -93,7 +133,7 @@ body {
         <div class="info">
             Falls der Download nicht startet:  
             <br>
-            <a href="0840bot.de/app" style="color:#00FFD1;">
+            <a href="https://0840bot.de/app">
                 Alternativer Download-Link
             </a>
         </div>
